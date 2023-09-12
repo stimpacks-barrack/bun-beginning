@@ -3,13 +3,21 @@
   "version": "1.0.50",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "bun run --watch src/index.ts"
+    "dev": "bun run --watch src/index.ts",
+    "serve": "bun run src/index.ts",
+    "build": "bun run bun.config.ts",
+    "build:cli": "bun build ./cli.ts --outfile mycli --compile",
+    "file": "bun run src/files.ts"
   },
   "dependencies": {
     "elysia": "latest"
   },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
   "devDependencies": {
-    "bun-types": "latest"
+    "bun-types": "latest",
+    "react-dom": "^18.2.0"
   },
   "module": "src/index.js"
 }
