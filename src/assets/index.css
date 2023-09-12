@@ -1,0 +1,43 @@
+/* the props */
+@import "https://unpkg.com/open-props";
+
+/* optional imports that use the props */
+@import "https://unpkg.com/open-props/normalize.min.css";
+@import "https://unpkg.com/open-props/buttons.min.css";
+
+/* just dark or light themes */
+@import "https://unpkg.com/open-props/normalize.dark.min.css";
+@import "https://unpkg.com/open-props/buttons.dark.min.css";
+@import "https://unpkg.com/open-props/normalize.light.min.css";
+@import "https://unpkg.com/open-props/buttons.light.min.css";
+
+
+
+* {
+  padding: var(--size-fluid-0);
+  margin: var(--size-fluid-0);
+  box-sizing: border-box;
+  font-family: var(--font-sans);
+}
+
+.header {
+  text-align: center;
+  color: var(--gray-9);
+  --op-gradient-direction: to top left;
+  background-image: var(--gradient-7);
+  padding: var(--size-fluid-2);
+  border-bottom: 4px solid var(--blue-3);
+  margin-bottom: var(--size-fluid-3);
+}
+
+.header * {
+  margin: 0 auto;
+}
+
+.container {
+  margin-top: var(--size-fluid-3);;
+  width: 50%;
+  margin: 0px auto;
+  text-align: center;
+}
+
