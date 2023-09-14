@@ -3,7 +3,7 @@
   "version": "1.0.50",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "bun run --watch src/index.ts",
+    "dev": "bun run --watch src/index.tsx",
     "serve": "bun run src/index.ts",
     "build": "bun run bun.config.ts",
     "build:cli": "bun build ./cli.ts --outfile mycli --compile",
@@ -16,7 +16,10 @@
     "typescript": "^5.0.0"
   },
   "devDependencies": {
+    "@types/react": "^18.2.21",
+    "@types/react-dom": "^18.2.7",
     "bun-types": "latest",
+    "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "module": "src/index.js"

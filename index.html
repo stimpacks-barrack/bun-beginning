@@ -14,17 +14,27 @@
   <header class="header">
     <hgroup>
       <h1>Bun X HTMX</h1>
-      <h2>Tutorial by Dante</h2>
+      <!-- <h2>Tutorial by Dante</h2> -->
     </hgroup>
   </header>
   <main class="container">
-    <form>
+    <form 
+      hx-post="/todos"
+      hx-target="#todos"
+      hx-ext="json-enc"
+      _="on submit target.reset()"
+    >
       <label for="todo">New Todo</label>
+      
       <input id="todo" name="todo" type="text" placeholder="New todo">
+      
       <button type="submit">Create</button>
     </form>
-    <section id="todos">
-      
+    <section 
+      id="todos"
+      hx-get="/todos"
+      hx-trigger="load"
+    >
     </section>
   </main>
 </body>
