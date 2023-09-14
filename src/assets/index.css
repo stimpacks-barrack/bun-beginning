@@ -34,6 +34,10 @@
   margin: 0 auto;
 }
 
+body {
+  background-image: var(--gradient-9);
+}
+
 .container {
   margin-top: var(--size-fluid-3);;
   width: 50%;
@@ -41,3 +45,37 @@
   text-align: center;
 }
 
+.todo {
+  font-size: var(--font-size-3);
+  text-align: left;
+  list-style-type: upper-alpha;
+  gap: var(--size-3);
+  margin: var(--size-3);
+}
+
+.checkbox {
+  display: none;
+}
+
+.checkbox:checked +label {
+  text-decoration: line-through;
+}
+
+.todo_check:hover {
+  box-shadow: var(--shadow-3);
+}
+
+.todo_check {
+  width: var(--size-3);
+  height: var(--size-3);
+}
+
+
+.delete {
+  margin-left: var(--size-3);
+  display: none;
+}
+
+.todo:hover .delete {
+  display: initial;
+}

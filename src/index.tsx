@@ -1,6 +1,7 @@
 import { ServeOptions } from "bun";
 import { Elysia } from "elysia";
 import { renderToString } from "react-dom/server";
+import TodoList from "./components/TodoList";
 
 const app = new Elysia().get("/", () => "Hello Elysia").listen(3000);
 
@@ -10,7 +11,7 @@ console.log(
 
 
 type Todo = { id: number, text: string }
-const todos: Todo[] = [];
+const todos: Todo[] = [{id:0, text: "안녕하세요"}];
 
 const server = Bun.serve({
   hostname: "localhost",
@@ -52,7 +53,7 @@ async function handler(request: Request): Promise<Response> {
   }
 
   if(url.pathname === "/todos" && request.method === "GET") {
-    return new Response(renderToString(<TodoList todos={[]}></TodoList>));
+    return new Response(renderToString(<TodoList todos={todos}></TodoList>));
   }
 
   if(url.pathname === '' || url.pathname === '/')  {
@@ -64,8 +65,3 @@ async function handler(request: Request): Promise<Response> {
 console.log(`Listening on http://${server.hostname}:${server.port}`)
 
 
-function TodoList(props: { todos:  Todo[]}){
-  return <ul>
-    { props.todos.length ? props.todos.map(todo => <li>{todo.text}</li>) : "No items added"}
-  </ul>
-}
