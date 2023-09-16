@@ -1,17 +1,17 @@
 import { ServeOptions } from "bun";
-import { Elysia } from "elysia";
+// import { Elysia } from "elysia";
 import { renderToString } from "react-dom/server";
 import TodoList from "./components/TodoList";
 
-const app = new Elysia().get("/", () => "Hello Elysia").listen(3000);
+// const app = new Elysia().get("/", () => "Hello Elysia").listen(3000);
 
-console.log(
-  `🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`
-);
+// console.log(
+//   `🦊 Elysia is running at ${app.server?.hostname}:${app.server?.port}`
+// );
 
 
 type Todo = { id: number, text: string }
-const todos: Todo[] = [{id:0, text: "안녕하세요"}];
+let todos: Todo[] = [{id:0, text: "안녕하세요"}];
 
 const server = Bun.serve({
   hostname: "localhost",
@@ -50,6 +50,12 @@ async function handler(request: Request): Promise<Response> {
     })
 
     return new Response(renderToString(<TodoList todos={todos} key={todo.id}></TodoList>))
+  }
+
+  if(url.pathname.startsWith("/todos") && request.method === "DELETE") {
+    const todoId = url.pathname.match(/\/todos\/(\d+)/)?.[1];
+    todos = todos.filter( todo => todo.id.toString() !== todoId)
+    return new Response(renderToString(<TodoList todos={todos}></TodoList>));
   }
 
   if(url.pathname === "/todos" && request.method === "GET") {

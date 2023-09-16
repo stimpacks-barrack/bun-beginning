@@ -27,7 +27,13 @@ function Todo({todo}: {todo: Todo}) {
       <label htmlFor={`todo_check_${todo.id}`} className="todo_check">
         {todo.text}
       </label>
-      <button className="delete"> DELETE </button>
+      <button 
+        hx-delete={`/todos/${todo.id}`} 
+        className="delete"
+        hx-target="#todos"
+      >
+          DELETE 
+      </button>
     </li>
   )
 }
