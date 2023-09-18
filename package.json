@@ -3,10 +3,16 @@
   "version": "1.0.50",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "bun run --watch src/index.ts"
+    "dev": "bun run --watch src/index.tsx",
+    "build": "bun build src/index.tsx --outdir ./dist",
+    "serve": "bun run --watch dist/index.js"
   },
   "dependencies": {
-    "elysia": "latest"
+    "@types/react": "^18.2.21",
+    "@types/react-dom": "^18.2.7",
+    "elysia": "latest",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "bun-types": "latest"

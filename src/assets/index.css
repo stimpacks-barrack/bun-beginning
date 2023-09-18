@@ -1,0 +1,81 @@
+/* the props */
+@import "https://unpkg.com/open-props";
+
+/* optional imports that use the props */
+@import "https://unpkg.com/open-props/normalize.min.css";
+@import "https://unpkg.com/open-props/buttons.min.css";
+
+/* just dark or light themes */
+@import "https://unpkg.com/open-props/normalize.dark.min.css";
+@import "https://unpkg.com/open-props/buttons.dark.min.css";
+@import "https://unpkg.com/open-props/normalize.light.min.css";
+@import "https://unpkg.com/open-props/buttons.light.min.css";
+
+
+
+* {
+  padding: var(--size-fluid-0);
+  margin: var(--size-fluid-0);
+  box-sizing: border-box;
+  font-family: var(--font-sans);
+}
+
+.header {
+  text-align: center;
+  color: var(--gray-9);
+  --op-gradient-direction: to top left;
+  background-image: var(--gradient-7);
+  padding: var(--size-fluid-2);
+  border-bottom: 4px solid var(--blue-3);
+  margin-bottom: var(--size-fluid-3);
+}
+
+.header * {
+  margin: 0 auto;
+}
+
+body {
+  background-image: var(--gradient-9);
+}
+
+.container {
+  margin-top: var(--size-fluid-3);;
+  width: 50%;
+  margin: 0px auto;
+  text-align: center;
+}
+
+.todo {
+  font-size: var(--font-size-3);
+  text-align: left;
+  list-style-type: upper-alpha;
+  gap: var(--size-3);
+  margin: var(--size-3);
+}
+
+.checkbox {
+  display: none;
+}
+
+.checkbox:checked +label {
+  text-decoration: line-through;
+}
+
+.todo_check:hover {
+  box-shadow: var(--shadow-3);
+}
+
+.todo_check {
+  width: var(--size-3);
+  height: var(--size-3);
+}
+
+
+.delete {
+  margin-left: var(--size-3);
+  display: none;
+}
+
+.todo:hover .delete {
+  display: initial;
+}
